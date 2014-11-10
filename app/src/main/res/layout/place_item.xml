@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="0px"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="0px"
+    android:paddingBottom="0px"
+    android:background="@drawable/card_background_selector"
+    tools:context="com.wedevjs.heatmapp.PlacesActivity">
+
+    <ImageView
+        android:id="@+id/place_last_picture"
+        android:layout_width="250px"
+        android:layout_height="250px"
+        android:layout_marginRight="30px"
+        android:layout_alignParentLeft="true"
+        android:layout_marginBottom="2dp"
+        android:background="@drawable/image_background">
+        <!--android:src="@drawable/ic_launcher" >-->
+    </ImageView>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/place_last_picture"
+        android:layout_marginTop="10px"
+        android:layout_marginBottom="0px">
+
+        <TextView
+            android:id="@+id/name_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20px"
+            android:text="Name"
+            android:textSize="22sp" >
+        </TextView>
+
+        <ImageView
+            android:id="@+id/pictures_icon"
+            android:layout_width="50px"
+            android:layout_height="50px"
+            android:layout_marginLeft="0px"
+            android:layout_marginRight="5px"
+            android:layout_marginTop="0px"
+            android:layout_below="@id/name_label"
+            android:src="@drawable/ic_pictures" >
+        </ImageView>
+
+        <TextView
+            android:id="@+id/pictures_number_label"
+            android:layout_toRightOf="@id/pictures_icon"
+            android:layout_below="@id/name_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="0"
+            android:textSize="16sp" >
+        </TextView>
+
+        <TextView
+            android:id="@+id/pictures_label"
+            android:layout_toRightOf="@id/pictures_number_label"
+            android:layout_below="@id/name_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=" Pictures"
+            android:textSize="16sp" >
+        </TextView>
+
+        <ImageView
+            android:id="@+id/views_icon"
+            android:layout_width="50px"
+            android:layout_height="50px"
+            android:layout_marginLeft="0px"
+            android:layout_marginRight="5px"
+            android:layout_marginTop="0px"
+            android:layout_below="@id/pictures_label"
+            android:src="@drawable/ic_views" >
+        </ImageView>
+
+        <TextView
+            android:id="@+id/views_number_label"
+            android:layout_toRightOf="@id/views_icon"
+            android:layout_below="@id/pictures_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="0"
+            android:textSize="16sp" >
+        </TextView>
+
+        <TextView
+            android:id="@+id/views_label"
+            android:layout_toRightOf="@id/views_number_label"
+            android:layout_below="@id/pictures_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=" Views"
+            android:textSize="16sp" >
+        </TextView>
+
+        <ImageView
+            android:id="@+id/people_icon"
+            android:layout_width="50px"
+            android:layout_height="50px"
+            android:layout_marginLeft="0px"
+            android:layout_marginRight="5px"
+            android:layout_marginTop="0px"
+            android:layout_below="@id/views_label"
+            android:src="@drawable/ic_people" >
+        </ImageView>
+
+        <TextView
+            android:id="@+id/people_number_label"
+            android:layout_toRightOf="@id/people_icon"
+            android:layout_below="@id/views_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="0"
+            android:textSize="16sp" >
+        </TextView>
+
+        <TextView
+            android:id="@+id/people_label"
+            android:layout_toRightOf="@id/people_number_label"
+            android:layout_below="@id/views_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=" People"
+            android:textSize="16sp" >
+        </TextView>
+
+        </RelativeLayout>
+
+
+
+</RelativeLayout>

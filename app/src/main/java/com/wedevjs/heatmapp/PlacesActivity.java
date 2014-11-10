@@ -4,14 +4,43 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ListView;
+
+import java.util.ArrayList;
+import java.util.Arrays;
 
 
 public class PlacesActivity extends Activity {
+
+    ArrayList<String> name = new ArrayList<String>();
+    ArrayList<String> pictures = new ArrayList<String>();
+    ArrayList<String> views = new ArrayList<String>();
+    ArrayList<String> people = new ArrayList<String>();
+    ListView listView;
+    CustomListViewAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_places);
+
+        name.addAll(Arrays.asList(getResources().getStringArray(R.array.name)));
+        pictures.addAll(Arrays.asList(getResources().getStringArray(R.array.pictures)));
+        views.addAll(Arrays.asList(getResources().getStringArray(R.array.views)));
+        people.addAll(Arrays.asList(getResources().getStringArray(R.array.people)));
+
+        adapter = new CustomListViewAdapter(this, name, pictures, views, people);
+        listView = (ListView) findViewById(R.id.list);
+        listView.setAdapter(adapter);
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+//                Intent intent = new Intent(this, PicturesActivity.class);
+//                startActivity(intent);
+            }
+        });
     }
 
 

@@ -2,6 +2,44 @@
 <resources>
 
     <string name="app_name">HeatMapp</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="drawer_open">Slider Menu Opened</string>
+    <string name="drawer_close">Slider Menu Closed</string>
+
+    <!-- Nav Drawer Menu Items -->
+    <string-array name="nav_drawer_items">
+        <item>Pictures</item>
+        <item>Map</item>
+        <item>Settings</item>
+        <item>Help</item>
+    </string-array>
+
+    <!-- Nav Drawer List Item Icons -->
+    <array name="nav_drawer_icons">
+        <item>@drawable/ic_action_picture</item>
+        <item>@drawable/ic_action_place</item>
+        <item>@drawable/ic_action_settings</item>
+        <item>@drawable/ic_action_help</item>
+    </array>
+
+    <!-- Nav Drawer List Item Icons -->
+    <array name="places_pictures">
+        <item>@drawable/pic_murphys</item>
+        <item>@drawable/pic_redlion</item>
+        <item>@drawable/pic_kams</item>
+        <item>@drawable/pic_joes</item>
+        <item>@drawable/pic_firehaus</item>
+        <item>@drawable/pic_legends</item>
+        <item>@drawable/pic_papads</item>
+        <item>@drawable/pic_cowboymonkey</item>
+    </array>
+
+    <!-- Content Description -->
+    <string name="desc_list_item_icon">Item Icon</string>
+    <string name="title_activity_pictures">PicturesActivity</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
     <string name="title_section1">Pictures</string>
     <string name="title_section2">Map</string>
     <string name="title_section3">Settings</string>
@@ -9,10 +47,10 @@
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="action_example">Example action</string>
-    <string name="action_settings">Settings</string>
     <string name="title_activity_places">PlacesActivity</string>
-    <string name="hello_world">Hello world!</string>
-
     <string name="title_settings">Settings</string>
-</resources>
+    <string name="title_activity_maps">Map</string>
+    <string name="photos">Photos</string>
+    <string name="location">Get My Location</string>
 
+</resources>

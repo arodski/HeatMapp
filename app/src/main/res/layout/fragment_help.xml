@@ -1,0 +1,85 @@
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    android:background="@color/nav_drawer_bg">
+
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="0dp"
+    android:padding="16dp"
+    android:background="@color/nav_drawer_bg"
+    tools:context="com.wedevjs.heatmapp.HelpFragment">
+
+    <ImageView
+        android:id="@+id/wedev_logo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:adjustViewBounds="true"
+        android:src="@drawable/wedevlogo"/>
+
+    <RelativeLayout
+        android:id="@+id/contact_form"
+        android:layout_below="@id/wedev_logo"
+        android:layout_centerVertical="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="20px"
+        android:background="@drawable/card_background_selector">
+
+        <TextView
+            android:id="@+id/help_header"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10px"
+            android:textSize="22sp"
+            android:textColor="#ff515151"
+            android:textStyle="bold"
+            android:gravity="center_horizontal"
+            android:text="SEND YOUR QUESTIONS" />
+
+        <EditText
+            android:id="@+id/contact_name_text"
+            android:layout_below="@id/help_header"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20px"
+            android:inputType="textCapWords"
+            android:hint="Name"/>
+
+        <EditText
+            android:id="@+id/contact_email_text"
+            android:layout_below="@id/contact_name_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20px"
+            android:inputType="textEmailAddress"
+            android:hint="Email"/>
+
+        <EditText
+            android:id="@+id/contact_message_text"
+            android:layout_below="@id/contact_email_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20px"
+            android:inputType="textMultiLine"
+            android:scrollbars="vertical"
+            android:gravity="left|top"
+            android:hint="Message"/>
+
+        <Button
+            android:id="@+id/contact_send_button"
+            android:layout_below="@id/contact_message_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="100px"
+            android:text="SEND"
+            android:textColor="#fff"
+            android:background="#1f77b4"/>
+
+    </RelativeLayout>
+
+</RelativeLayout>
+</ScrollView>

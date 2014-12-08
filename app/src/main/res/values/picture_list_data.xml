@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="user">
+        <item>mdeoliv2</item>
+        <item>nemefon2</item>
+        <item>rodrig67</item>
+        <item>cchiu12</item>
+        <item>mdeoliv2</item>
+        <item>nemefon2</item>
+        <item>rodrig67</item>
+        <item>cchiu12</item>
+    </string-array>
+
+    <string-array name="time">
+        <item>2 minutes</item>
+        <item>39 minutes</item>
+        <item>1 hour</item>
+        <item>1 hour</item>
+        <item>2 hours</item>
+        <item>2 hours</item>
+        <item>3 hours</item>
+        <item>4 hours</item>
+    </string-array>
+</resources>

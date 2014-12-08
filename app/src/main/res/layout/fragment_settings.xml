@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16px"
+    android:background="@color/nav_drawer_bg">
+
+    <RelativeLayout
+        android:id="@+id/secure_location_option"
+        android:layout_width="match_parent"
+        android:padding="20px"
+        android:background="@drawable/card_background_selector"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/secure_location_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Secure Location"
+            android:textSize="22sp"
+            android:layout_alignParentLeft="true"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/secure_location_label"
+            android:text="Don't show my location if I'm alone"
+            android:textColor="@color/buttonTextUnselected"
+            android:textSize="16sp"
+            android:layout_alignParentLeft="true"/>
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            android:layout_alignParentRight="true"/>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/main_screen_option"
+        android:layout_width="match_parent"
+        android:layout_below="@id/secure_location_option"
+        android:padding="20px"
+        android:background="@drawable/card_background_selector"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/main_screen_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Picture view as main screen"
+            android:textSize="22sp"
+            android:layout_alignParentLeft="true"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/main_screen_label"
+            android:text="Uncheck if you prefer the Map view"
+            android:textColor="@color/buttonTextUnselected"
+            android:textSize="16sp"
+            android:layout_alignParentLeft="true"/>
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            android:layout_alignParentRight="true"/>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/login_fb_option"
+        android:layout_width="match_parent"
+        android:layout_below="@id/main_screen_option"
+        android:padding="20px"
+        android:background="@drawable/card_background_selector"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/login_fb_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Login on Facebook"
+            android:textSize="22sp"
+            android:layout_alignParentLeft="true"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/login_fb_label"
+            android:text="Makes content sharing easier"
+            android:textColor="@color/buttonTextUnselected"
+            android:textSize="16sp"
+            android:layout_alignParentLeft="true"/>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/login_twitter_option"
+        android:layout_width="match_parent"
+        android:layout_below="@id/login_fb_option"
+        android:padding="20px"
+        android:background="@drawable/card_background_selector"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/login_twitter_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Login on Twitter"
+            android:textSize="22sp"
+            android:layout_alignParentLeft="true"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/login_twitter_label"
+            android:text="Makes content sharing easier"
+            android:textColor="@color/buttonTextUnselected"
+            android:textSize="16sp"
+            android:layout_alignParentLeft="true"/>
+
+    </RelativeLayout>
+
+</RelativeLayout>

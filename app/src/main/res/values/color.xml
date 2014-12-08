@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="list_item_title">#fff</color>
+    <color name="list_background">#303030</color>
+    <color name="list_background_pressed">#992416</color>
+    <color name="list_divider">#272727</color>
+    <color name="counter_text_bg">#ff2e2e2e</color>
+    <color name="counter_text_color">#ff2e2e2e</color>
+    <color name="nav_drawer_bg">#ffeeeeee</color>
+    <color name="buttonSelected">#1f77b4</color>
+    <color name="buttonUnselected">#ffffff</color>
+    <color name="buttonTextSelected">#ffffff</color>
+    <color name="buttonTextUnselected">#404040</color>
+</resources>

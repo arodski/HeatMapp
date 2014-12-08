@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="0px"
+    android:paddingRight="0px"
+    android:paddingTop="0px"
+    android:paddingBottom="10px"
+    android:background="@drawable/card_background_selector"
+    tools:context="com.wedevjs.heatmapp.PicturesActivity">
+
+    <ImageView
+        android:id="@+id/place_picture"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:adjustViewBounds="true"
+        android:src="@drawable/pic_example" >
+    </ImageView>
+
+    <RelativeLayout
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/place_picture"
+        android:layout_margin="20px">
+
+        <TextView
+            android:id="@+id/by_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_marginBottom="20px"
+            android:text="by "
+            android:textSize="20sp" >
+        </TextView>
+
+        <TextView
+            android:id="@+id/by_name_label"
+            android:layout_toRightOf="@id/by_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="instagramUser"
+            android:textColor="#1f77b4"
+            android:textStyle="bold"
+            android:textSize="20sp" >
+        </TextView>
+
+        <TextView
+            android:id="@+id/ago_label"
+            android:layout_alignParentRight="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=" ago"
+            android:textSize="20sp" >
+        </TextView>
+
+        <TextView
+            android:id="@+id/ago_numer_label"
+            android:layout_toLeftOf="@id/ago_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="1 hour"
+            android:textSize="20sp" >
+        </TextView>
+
+    </RelativeLayout>
+
+</RelativeLayout>

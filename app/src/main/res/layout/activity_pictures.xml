@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/nav_drawer_bg"
+    tools:context="com.wedevjs.heatmapp.PlacesActivity">
+
+    <RelativeLayout
+        android:id="@+id/upper_menu"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/card_background_selector">
+
+        <ImageView
+            android:id="@+id/people_icon_pictures_fragment"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginRight="20px"
+            android:layout_centerInParent="true"
+            android:layout_marginBottom="0dp"
+            android:src="@drawable/ic_people" >
+        </ImageView>
+
+        <TextView
+            android:id="@+id/people_now_number_label"
+            android:layout_alignParentLeft="true"
+            android:layout_alignBottom="@id/people_icon_pictures_fragment"
+            android:layout_marginLeft="20px"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="214"
+            android:textColor="#1f77b4"
+            android:textSize="32sp" >
+        </TextView>
+
+        <TextView
+            android:id="@+id/people_now_label"
+            android:layout_toRightOf="@id/people_now_number_label"
+            android:layout_alignBottom="@id/people_now_number_label"
+            android:paddingBottom="10px"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=" now"
+            android:textSize="20sp" >
+        </TextView>
+
+        <TextView
+            android:id="@+id/might_go_number_label"
+            android:layout_alignParentRight="true"
+            android:layout_alignBottom="@id/people_icon_pictures_fragment"
+            android:layout_marginRight="20px"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="33"
+            android:textColor="#d62728"
+            android:textSize="32sp" >
+        </TextView>
+
+        <TextView
+            android:id="@+id/might_go_label"
+            android:layout_alignBottom="@id/might_go_number_label"
+            android:layout_toLeftOf="@id/might_go_number_label"
+            android:paddingBottom="10px"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="going "
+            android:textSize="20sp" >
+        </TextView>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/might_go_button"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:onClick="changeMightGo"
+        android:background="@drawable/card_background_selector">
+
+        <ImageView
+            android:id="@+id/might_go_icon"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginRight="20px"
+            android:layout_marginLeft="20px"
+            android:src="@drawable/ic_might_go_unselected" >
+        </ImageView>
+
+        <TextView
+            android:id="@+id/might_go_button_label"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginLeft="20px"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="MIGHT GO"
+            android:textColor="#404040"
+            android:textSize="22sp" >
+        </TextView>
+
+    </RelativeLayout>
+
+    <ListView
+        android:id="@+id/list_pictures"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/upper_menu"
+        android:layout_above="@id/might_go_button"
+        android:listSelector="@android:color/transparent"
+        android:cacheColorHint="@android:color/transparent"
+        android:divider="@null"
+        android:dividerHeight="10dp"
+        android:padding="20px"
+        android:clipToPadding="false"/>
+
+</RelativeLayout>

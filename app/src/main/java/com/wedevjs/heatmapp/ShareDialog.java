@@ -46,9 +46,15 @@ public class ShareDialog extends DialogFragment {
 
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent("android.intent.category.LAUNCHER");
-                intent.setClassName("com.facebook.katana", "com.facebook.katana.LoginActivity");
-                startActivity(intent);
+                try {
+                    Intent intent = new Intent("android.intent.category.LAUNCHER");
+                    intent.setClassName("com.facebook.katana", "com.facebook.katana.LoginActivity");
+                    startActivity(intent);
+                } catch ( Exception e) {
+                    Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://facebook.com"));
+                    startActivity(intent);
+                }
+
             }
         });
 

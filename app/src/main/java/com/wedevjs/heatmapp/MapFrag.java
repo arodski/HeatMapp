@@ -114,8 +114,8 @@ public class MapFrag extends Fragment  {
     public void openFilter(){
 
         new AlertDialog.Builder(getActivity(), AlertDialog.THEME_DEVICE_DEFAULT_DARK)
-                .setTitle("Filter locations")
-                .setMessage("Filter locations on the map")
+                .setTitle("Filter")
+                .setMessage("Filter categories on the map")
                 .setNeutralButton("Study areas", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {
                         if (marker_list != null) {

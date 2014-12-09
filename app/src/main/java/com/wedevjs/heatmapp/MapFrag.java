@@ -7,6 +7,7 @@ import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.Bundle;
+import android.provider.Settings;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -39,7 +40,6 @@ public class MapFrag extends Fragment  {
 
     // The minimum time between updates in milliseconds
     private static final long MIN_TIME_BW_UPDATES = 1000 * 5 * 1; // 1 minute
-    public static final String GPS_PROVIDER = "gps";
 
     /* Campus Bars */
     private final LatLng RED_LION = new LatLng(40.109971, -88.235613);
@@ -60,6 +60,7 @@ public class MapFrag extends Fragment  {
 
     LocationClient mLocationClient;
     private Marker marker;
+    private Marker userMarker;
     ArrayList<Marker> marker_list = new ArrayList<Marker>();
 
 
@@ -97,6 +98,10 @@ public class MapFrag extends Fragment  {
                     marker.remove();
                     marker = null;
                 }
+            }
+            if(userMarker != null) {
+                userMarker.remove();
+
             }
         }
         mMap = null;
@@ -246,45 +251,84 @@ public class MapFrag extends Fragment  {
     }
 
     protected void goToCurrentLocation() {
+
         LocationManager locationManager;
         locationManager = (LocationManager) getActivity()
                 .getSystemService(getActivity().LOCATION_SERVICE);
-        locationManager.requestLocationUpdates(GPS_PROVIDER, MIN_TIME_BW_UPDATES, MIN_DISTANCE_CHANGE_FOR_UPDATES, new LocationListener() {
-            @Override
-            public void onLocationChanged(Location location) {}
-            @Override
-            public void onStatusChanged(String provider, int status, Bundle extras) {}
-            @Override
-            public void onProviderEnabled(String provider) {}
-            @Override
-            public void onProviderDisabled(String provider) {}
-        });
 
-        Location currentLocation = null;
+        // getting GPS status
+        boolean isGPSEnabled = locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER);
 
-        if (locationManager != null) {
-            currentLocation = locationManager
-                    .getLastKnownLocation(LocationManager.GPS_PROVIDER);
-            if(currentLocation != null) {
-                LatLng ll = new LatLng(currentLocation.getLatitude(), currentLocation.getLongitude());
-                CameraUpdate update = CameraUpdateFactory.newLatLngZoom(ll, 18);
-                mMap.animateCamera(update);
+        if(isGPSEnabled) {
 
-//                MarkerOptions user_loc = new MarkerOptions()
-//                        .position(new LatLng(ll.latitude, ll.longitude))
-//                        .icon(BitmapDescriptorFactory.fromResource(R.drawable.user_location))
-//                        .title("");
-//                marker = mMap.addMarker(user_loc);
-//                marker_list.add(marker);
-            }
-            else{
-                Toast.makeText(getActivity(), "Current location isn't available", Toast.LENGTH_SHORT).show();
-            }
+            locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, MIN_TIME_BW_UPDATES, MIN_DISTANCE_CHANGE_FOR_UPDATES, new LocationListener() {
+                @Override
+                public void onLocationChanged(Location location) {
+                    if(location != null && mMap != null) {
+                        LatLng ll = new LatLng(location.getLatitude(), location.getLongitude());
+                        CameraUpdate update = CameraUpdateFactory.newLatLngZoom(ll, 18);
+                        mMap.animateCamera(update);
+
+                        MarkerOptions user_loc = new MarkerOptions()
+                                .position(new LatLng(ll.latitude, ll.longitude))
+                                .icon(BitmapDescriptorFactory.fromResource(R.drawable.user_location))
+                                .title("");
+                        if (userMarker != null) {
+                            userMarker.remove();
+                            userMarker = null;
+                        }
+                        userMarker = mMap.addMarker(user_loc);
+                    }
+                }
+
+                @Override
+                public void onStatusChanged(String provider, int status, Bundle extras) {
+                }
+
+                @Override
+                public void onProviderEnabled(String provider) {
+                }
+
+                @Override
+                public void onProviderDisabled(String provider) {
+                }
+            });
+
+            locationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, MIN_TIME_BW_UPDATES, MIN_DISTANCE_CHANGE_FOR_UPDATES, new LocationListener() {
+                @Override
+                public void onLocationChanged(Location location) {
+                    if(location != null && mMap != null) {
+                        LatLng ll = new LatLng(location.getLatitude(), location.getLongitude());
+                        CameraUpdate update = CameraUpdateFactory.newLatLngZoom(ll, 18);
+                        mMap.animateCamera(update);
+
+                        MarkerOptions user_loc = new MarkerOptions()
+                                .position(new LatLng(ll.latitude, ll.longitude))
+                                .icon(BitmapDescriptorFactory.fromResource(R.drawable.user_location))
+                                .title("");
+                        if (userMarker != null) {
+                            userMarker.remove();
+                            userMarker = null;
+                        }
+                        userMarker = mMap.addMarker(user_loc);
+                    }
+                }
+
+                @Override
+                public void onStatusChanged(String provider, int status, Bundle extras) {
+                }
+
+                @Override
+                public void onProviderEnabled(String provider) {
+                }
+
+                @Override
+                public void onProviderDisabled(String provider) {
+                }
+            });
+        } else{
+            Toast.makeText(getActivity(), "Enable your GPS", Toast.LENGTH_SHORT).show();
+            startActivity(new Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS));
         }
-        else {
-            Toast.makeText(getActivity(), "Current location isn't available", Toast.LENGTH_SHORT).show();
-        }
-
-
     }
 }

@@ -6,4 +6,7 @@
         android:icon="@drawable/ic_action_location_found"
         android:title="@string/location"
         android:showAsAction="always"/>
+    <item android:id="@+id/filter"
+        android:title="Filter"
+        android:showAsAction="always"/>
 </menu>

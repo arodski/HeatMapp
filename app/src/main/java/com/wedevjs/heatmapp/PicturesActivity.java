@@ -25,6 +25,7 @@ public class PicturesActivity extends FragmentActivity {
     ListView listView;
     PicturesListViewAdapter adapter;
     boolean mightGo = false;
+    String place = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,6 +46,7 @@ public class PicturesActivity extends FragmentActivity {
         String peopleNumber = intent.getStringExtra("people");
         setTitle(placeName);
         people_now.setText(peopleNumber);
+        place = placeName;
 
         getActionBar().setDisplayHomeAsUpEnabled(true);
     }
@@ -72,8 +74,10 @@ public class PicturesActivity extends FragmentActivity {
 
 
             FragmentManager fm = getSupportFragmentManager();
-            ShareDialog share = new ShareDialog();
+            final ShareDialog share = new ShareDialog(place);
             share.show(fm, "fragment_share");
+//            Dialog dl = share.getDialog();
+
         }
         else {
             mightGo = false;
@@ -89,6 +93,14 @@ public class PicturesActivity extends FragmentActivity {
             button_text.setText("MIGHT GO");
         }
     }
+
+//    public void closeDialog(View view){
+////        Fragment prev = getSupportFragmentManager().findFragmentByTag("fragment_share");
+////        if (prev != null) {
+////            DialogFragment df = (DialogFragment) prev;
+////            df.dismiss();
+////        }
+//    }
 
 
     @Override

@@ -115,7 +115,7 @@ public class MapFrag extends Fragment  {
 
         new AlertDialog.Builder(getActivity(), AlertDialog.THEME_DEVICE_DEFAULT_DARK)
                 .setTitle("Filter locations")
-                .setMessage("Which locations you want to see?")
+                .setMessage("Filter locations on the map")
                 .setNeutralButton("Study areas", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {
                         if (marker_list != null) {
@@ -382,7 +382,7 @@ public class MapFrag extends Fragment  {
                 }
             });
         } else{
-            Toast.makeText(getActivity(), "Enable your GPS", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getActivity(), "Your GPS is disabled. Please enable it to see your location", Toast.LENGTH_SHORT).show();
             startActivity(new Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS));
         }
     }

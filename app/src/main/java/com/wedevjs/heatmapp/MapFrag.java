@@ -1,7 +1,9 @@
 package com.wedevjs.heatmapp;
 
+import android.app.AlertDialog;
 import android.app.Fragment;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.location.Location;
 import android.location.LocationListener;
@@ -109,6 +111,49 @@ public class MapFrag extends Fragment  {
 
     }
 
+    public void openFilter(){
+
+        new AlertDialog.Builder(getActivity(), AlertDialog.THEME_DEVICE_DEFAULT_DARK)
+                .setTitle("Filter locations")
+                .setMessage("Which locations you want to see?")
+                .setNeutralButton("Study areas", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                        if (marker_list != null) {
+                            for (Marker marker : marker_list) {
+                                marker.remove();
+                                marker = null;
+                            }
+                        }
+                        addLibraries();
+                    }
+                })
+                .setNegativeButton("Bars", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                        if (marker_list != null) {
+                            for (Marker marker : marker_list) {
+                                marker.remove();
+                                marker = null;
+                            }
+                        }
+                        addBars();
+                    }
+                })
+                .setPositiveButton("Both", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                        if (marker_list != null) {
+                            for (Marker marker : marker_list) {
+                                marker.remove();
+                                marker = null;
+                            }
+                        }
+                        addLibraries();
+                        addBars();
+                    }
+                })
+                .setIcon(android.R.drawable.ic_dialog_map)
+                .show();
+    }
+
     @Override
     public void onResume() {
         super.onResume();
@@ -126,6 +171,9 @@ public class MapFrag extends Fragment  {
         switch (item.getItemId()) {
             case R.id.gotoCurrentLocation:
                 goToCurrentLocation();
+                return true;
+            case R.id.filter:
+                openFilter();
                 return true;
 
             default:
@@ -203,12 +251,11 @@ public class MapFrag extends Fragment  {
     private void setUpMap() {
         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(CHAMPAIGN, 15));
 
-        /* LIBRARY */
-        setMarker("Grainger Library", GRAINGER_LIB.latitude, GRAINGER_LIB.longitude, 218, 71, 4);
-        setMarker("Main Library", MAIN_LIB.latitude, MAIN_LIB.longitude, 92, 29, 2);
-        setMarker("Undergraduate Library", UNDERGRAD_LIB.latitude, UNDERGRAD_LIB.longitude, 285, 74, 4);
-        setMarker("ACES Library", ACES_LIB.latitude, ACES_LIB.longitude, 198, 65, 4);
+        addBars();
+        addLibraries();
+    }
 
+    private void addBars(){
         /* BARS */
         setMarker("KAM'S", KAMS.latitude, KAMS.longitude, 217, 87, 5);
         setMarker("Joe's", JOES.latitude, JOES.longitude, 192, 83, 5);
@@ -219,6 +266,14 @@ public class MapFrag extends Fragment  {
         setMarker("Firehaus", FIREHAUS.latitude, FIREHAUS.longitude, 87, 35, 2);
         setMarker("Murphy's", MURPHYS.latitude, MURPHYS.longitude, 125, 34, 2);
         setMarker("White Horse", WHITE_HORSE.latitude, WHITE_HORSE.longitude, 39, 20, 1);
+    }
+
+    private void addLibraries(){
+        /* LIBRARY */
+        setMarker("Grainger Library", GRAINGER_LIB.latitude, GRAINGER_LIB.longitude, 218, 71, 4);
+        setMarker("Main Library", MAIN_LIB.latitude, MAIN_LIB.longitude, 92, 29, 2);
+        setMarker("Undergraduate Library", UNDERGRAD_LIB.latitude, UNDERGRAD_LIB.longitude, 285, 74, 4);
+        setMarker("ACES Library", ACES_LIB.latitude, ACES_LIB.longitude, 198, 65, 4);
     }
 
 
